@@ -1,0 +1,3 @@
+displayName = Kadeus's Mod
+author = Kad3us
+version = 0.1
