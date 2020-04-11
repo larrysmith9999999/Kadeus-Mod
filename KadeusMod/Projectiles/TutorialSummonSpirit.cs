@@ -45,7 +45,7 @@ namespace TutorialMod.Projectiles
             TutorialPlayer tutorialPlayer = player.GetModPlayer<TutorialPlayer>(mod);
             if (player.dead)
                 {
-                    TutorialPlayer.summonSpiritMinion = true; //hoping this keeps it after you die if not, change this to false.
+                    TutorialPlayer.summonSpiritMinion = true; 
                 }
                 if (TutorialPlayer.summonSpiritMinion)
                 {
