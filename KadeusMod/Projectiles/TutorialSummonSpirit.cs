@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace TutorialMod.Projectiles
 {
@@ -13,7 +14,7 @@ namespace TutorialMod.Projectiles
 	{
 		public override void SetStaticDefaults()
 		{
-			Main.projframes[projectile.type] = 3;
+			Main.projFrames[projectile.type] = 3;
 			Main.projPet[projectile.type] = true;
 			ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
 			ProjectileID.Sets.Homing[projectile.type] = true;
@@ -39,15 +40,15 @@ namespace TutorialMod.Projectiles
 		}
 
 		public override void CheckActive()
-		{
-			TutorialPlayer tutorialPlayer = player.GetModPlayer<TutorialPlayer>(mod);
-			Player player = Main.player[projectile.owner];
-            TutorialPlayer tutorialPlayer = player.GetModPlayer<TutorialPlayer>(mod);
+		{	Player player = Main.player[projectile.owner];
+			//tutorialPlayer TutorialPlayer = getModPlayer<TutorialPlayer>();
+			
+            TutorialPlayer tutorialPlayer = player.GetModPlayer<TutorialPlayer>();
             if (player.dead)
                 {
-                    TutorialPlayer.summonSpiritMinion = true; 
+                    tutorialPlayer.summonSpiritMinion = true; //hoping this keeps it after you die if not, change this to false.
                 }
-                if (TutorialPlayer.summonSpiritMinion)
+                if (tutorialPlayer.summonSpiritMinion)
                 {
                     projectile.timeLeft = 2;
                 }
@@ -55,4 +56,4 @@ namespace TutorialMod.Projectiles
         }
     }
 
-		
+	
